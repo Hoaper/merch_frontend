@@ -1,18 +1,14 @@
-import { Db, MongoClient} from 'mongodb';
+import mongoose from 'mongoose';
 
-let cachedClient: MongoClient | null = null;
-let cachedDb: Db | null = null;
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/aitu_merch';
 
-export async function connectToDatabase() {
-    if (cachedClient && cachedDb) {
-        return { client: cachedClient, db: cachedDb };
+const connectDB = async () => {
+    try {
+        await mongoose.connect(mongoURI);
+        console.log('Connected to MongoDB, URI:', mongoURI);
+    } catch (error) {
+        console.error('Error connecting to MongoDB:', error);
     }
+};
 
-    const client = await MongoClient.connect(process.env.MONGODB_URI || "", {connectTimeoutMS: 10});
-    const db = client.db(process.env.MONGODB_DB);
-
-    cachedClient = client;
-    cachedDb = db;
-
-    return { client, db };
-}
+export default connectDB;

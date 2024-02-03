@@ -18,7 +18,7 @@ export default function Home() {
             )}
 
             <div className={"grid grid-cols-3 gap-4 p-2 items-center justify-center"}>
-                {!isValidating && data.products.map((product: any) => (
+                {!isValidating && data && data.items.map((product: any) => (
                     <div key={product.id} className={"border-2 rounded-xl p-2 items-center justify-center"}>
                         <div className="flex flex-col items-center justify-center">
                             <h1 className="text-3xl font-bold">{product.name}</h1>
