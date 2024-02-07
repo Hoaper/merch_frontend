@@ -3,10 +3,8 @@ import useSWR from "swr";
 import {useEffect} from "react";
 // import {useMiniApp} from "@tma.js/sdk-react";
 import {fetcher} from "@/lib/utils";
-import Categories from "@/models/categories";
 import Image from "next/image";
 import Link from "next/link";
-import categories from "@/models/categories";
 
 
 
