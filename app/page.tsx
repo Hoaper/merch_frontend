@@ -5,6 +5,7 @@ import {useEffect} from "react";
 import {fetcher} from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 
 
 
@@ -18,6 +19,10 @@ export default function Home() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
+            <div className={"bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent"}>
+                AITU MERCH
+            </div>
+
             {isValidating && (
                 <div className="flex flex-col items-center justify-center">
                     <h1 className="text-3xl font-bold">Loading...</h1>
@@ -25,14 +30,17 @@ export default function Home() {
             )}
 
             <div className={"grid grid-cols-2 gap-4 p-2 items-center justify-center"}>
+
                 {!isValidating && data && data.items.map((category: any) => (
-                    <Link href={`/category/${category._id}`} key={category._id} className={"border-2 rounded-xl p-2 items-center justify-center"}>
-                        <div className="flex flex-col items-center justify-center gap-4">
-                            <Image src={category.imageURL} alt={category.name} width={250} height={250}/>
-                            <div className={" uppercase font-bold w-full text-center py-1"}>
+                    <Link href={`/category/${category._id}`} key={category._id}>
+                        <Card className={"py-2 rounded-xl"}>
+                            <CardContent>
+                                <Image src={category.imageURL} alt={category.name} width={250} height={250}/>
+                            </CardContent>
+                            <CardFooter className={"text-center justify-center"}>
                                 {category.displayName}
-                            </div>
-                        </div>
+                            </CardFooter>
+                        </Card>
                     </Link>
                 ))}
             </div>
