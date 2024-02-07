@@ -24,7 +24,7 @@ export default function Home() {
                 </div>
             )}
 
-            <div className={"grid grid-cols-3 gap-4 p-2 items-center justify-center"}>
+            <div className={"grid grid-cols-2 gap-4 p-2 items-center justify-center"}>
                 {!isValidating && data && data.items.map((category: any) => (
                     <Link href={`/category/${category._id}`} key={category._id} className={"border-2 rounded-xl p-2 items-center justify-center"}>
                         <div className="flex flex-col items-center justify-center gap-4">
