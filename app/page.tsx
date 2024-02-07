@@ -19,7 +19,7 @@ export default function Home() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
-            <div className={"bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent"}>
+            <div className={"text-6xl mb-4 font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient"}>
                 AITU MERCH
             </div>
 
