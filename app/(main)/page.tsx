@@ -18,11 +18,7 @@ export default function Home() {
     }, []);
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between">
-            <div className={"text-6xl mb-4 font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient"}>
-                AITU MERCH
-            </div>
-
+        <div>
             {isValidating && (
                 <div className="flex flex-col items-center justify-center">
                     <h1 className="text-3xl font-bold">Loading...</h1>
@@ -32,7 +28,7 @@ export default function Home() {
             <div className={"grid grid-cols-2 gap-4 p-2 items-center justify-center"}>
 
                 {!isValidating && data && data.items.map((category: any) => (
-                    <Link href={`/category/${category._id}`} key={category._id}>
+                    <Link href={`/category/${category.name}`} key={category._id}>
                         <Card className={"py-2 rounded-xl"}>
                             <CardContent>
                                 <Image src={category.imageURL} alt={category.name} width={250} height={250}/>
@@ -45,6 +41,6 @@ export default function Home() {
                 ))}
             </div>
 
-        </main>
+        </div>
     );
 }

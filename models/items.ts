@@ -22,6 +22,11 @@ const itemSchema = new mongoose.Schema({
         min: 0,
         description: 'Quantity in stock'
     },
+    previewURL: {
+        type: String,
+        required: true,
+        description: 'Preview image URL'
+    },
     category: {
         type: String,
         required: true,

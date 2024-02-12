@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
+import Link from "next/link";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,7 +20,16 @@ export default function RootLayout({
   return (
       <Providers>
         <html>
-        <body>{children}</body>
+        <body>
+        <main className="flex min-h-screen flex-col items-center">
+            <Link
+                href={"/"}
+                className={"text-6xl mb-4 font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient"}>
+                AITU MERCH
+            </Link>
+            {children}
+        </main>
+        </body>
         </html>
       </Providers>
   );
